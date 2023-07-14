@@ -13,25 +13,27 @@ import jakarta.persistence.Table;
 @Table(name = "tb_game")
 public class Game {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id                                                 //Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY) //Primary Key
 	private Long id;
 	private String title;
 	
-	@Column(name = "game_year")
+	@Column(name = "game_year")                         //Name of the column is 'game_year', 'year' is reserved
 	private Integer year;
 	private String genre;
 	private String platforms;
 	private Double score;
 	private String imgUrl;
 	
-	@Column(columnDefinition = "TEXT")
+	@Column(columnDefinition = "TEXT")                  // VARCHAR is too short (255)
 	private String shortDescription;
 	
-	@Column(columnDefinition = "TEXT")
+	@Column(columnDefinition = "TEXT")                  // VARCHAR is too short (255)
 	private String longDescription;
 	
-	public Game () {
+	// Constructors
+	
+	public Game() {
 		
 	}
 
@@ -48,6 +50,8 @@ public class Game {
 		this.longDescription = longDescription;
 	}
 
+	// Getters and Setters
+	
 	public Long getId() {
 		return id;
 	}
@@ -119,7 +123,9 @@ public class Game {
 	public void setLongDescription(String longDescription) {
 		this.longDescription = longDescription;
 	}
-
+	
+	// Overriding equals() and hashCode() methods
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
