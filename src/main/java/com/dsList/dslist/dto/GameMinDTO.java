@@ -1,6 +1,7 @@
 package com.dsList.dslist.dto;
 
 import com.dsList.dslist.entities.Game;
+import com.dsList.dslist.projections.GameMinProjection;
 
 public class GameMinDTO {
 
@@ -23,6 +24,18 @@ public class GameMinDTO {
 		year = entity.getYear();
 		imgUrl = entity.getImgUrl();
 		shortDescription = entity.getShortDescription();
+		
+	}
+	
+	// Constructor method instantiates an object based on the projection 'GameMinProjection'
+	
+	public GameMinDTO(GameMinProjection projection) {
+		
+		id = projection.getId();
+		title = projection.getTitle();
+		year = projection.getYear();
+		imgUrl = projection.getImgUrl();
+		shortDescription = projection.getShortDescription();
 		
 	}
 	

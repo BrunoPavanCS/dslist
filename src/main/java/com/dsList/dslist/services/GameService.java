@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.dsList.dslist.dto.GameDTO;
 import com.dsList.dslist.dto.GameMinDTO;
 import com.dsList.dslist.entities.Game;
+import com.dsList.dslist.projections.GameMinProjection;
 import com.dsList.dslist.repositories.GameRepository;
 
 // Framework is responsible for managing the components, therefore it needs to be registered as one
@@ -39,6 +40,13 @@ public class GameService {
 		// List<Game> --> List<GameMinDTO>
 		List<GameMinDTO> dto = result.stream().map(x -> new GameMinDTO(x)).toList();
 		return dto;
+	}
+	
+	// Receives the id of a list and returns the games that are on that list
+	@Transactional(readOnly = true)
+	public List<GameMinDTO> findByList(Long listId){
+		List<GameMinProjection> result = gameRepository.searchByList(listId);
+		return result.stream().map(x -> new GameMinDTO(x)).toList();
 	}
 	
 }
