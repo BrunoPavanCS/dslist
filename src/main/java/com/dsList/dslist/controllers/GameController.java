@@ -19,7 +19,7 @@ public class GameController {
 	@Autowired
 	private GameService gameService;
 	
-	// Searching endpoint (HTTP -> GET)
+	// Searching end-point (HTTP -> GET)
 	@GetMapping
 	public List<GameMinDTO> findAll() {
 		List<GameMinDTO> result = gameService.findAll();
