@@ -5,7 +5,7 @@ public interface GameMinProjection {
 	// Get() methods for each data type the query returns 
 	Long getId();
 	String getTitle();
-	Integer getYear();
+	Integer getGameYear();
 	String getImgUrl();
 	String getShortDescription();
 	Integer getPosition();
